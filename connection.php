@@ -7,7 +7,7 @@ $database = "dog_shelter";
 // Create connection
 $connection = mysqli_connect($servername, $username, $password, $database);
 
-var_dump($connection);
+//var_dump($connection);
 
 if (!$connection) {
     die("Connection failed");

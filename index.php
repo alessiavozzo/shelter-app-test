@@ -32,9 +32,10 @@ var_dump($result);
         <?php endwhile; ?>
     </div>
 
-    <form action="server.php" method="post">
-        <input type="text" name="name">
-        <button type="submit">Invia</button>
+    <form action="login.php" method="post">
+        <input type="email" name="email">
+        <input type="password" name="password">
+        <button type="submit">Login</button>
     </form>
 
 </body>
