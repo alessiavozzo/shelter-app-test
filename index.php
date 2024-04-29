@@ -13,12 +13,7 @@
 
 <body>
 
-    <form action="server.php" method="post">
-        <input type="text" name="name">
-        <input type=" text" name="breed">
-        <input type="text" name="age">
-        <button type="submit">Invia</button>
-    </form>
+
 
 </body>
 
