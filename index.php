@@ -4,7 +4,7 @@ require __DIR__ . "/connection.php";
 
 $query = "SELECT * FROM `dogs`";
 $result = mysqli_query($connection, $query);
-var_dump($result);
+//var_dump($result);
 //var_dump($result->fetch_assoc());
 //$dog = $result->fetch_assoc();
 //var_dump(mysqli_fetch_assoc($result));
