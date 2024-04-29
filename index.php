@@ -1,6 +1,12 @@
 <?php
+session_start();
+var_dump($_SESSION);
 require __DIR__ . "/connection.php";
 
+$showForm = true;
+if ($_SESSION["isLogged"] == true) {
+    $showForm = false;
+}
 
 $query = "SELECT * FROM `dogs`";
 $result = mysqli_query($connection, $query);
@@ -32,11 +38,16 @@ $result = mysqli_query($connection, $query);
         <?php endwhile; ?>
     </div>
 
-    <form action="login.php" method="post">
-        <input type="email" name="email">
-        <input type="password" name="password">
-        <button type="submit">Login</button>
-    </form>
+    <?php if ($showForm) : ?>
+        <form action="login.php" method="post">
+            <input type="email" name="email">
+            <input type="password" name="password">
+            <button type="submit">Login</button>
+        </form>
+    <?php else : ?>
+        <a href="logout.php?logout=true">Logout</a>
+    <?php endif; ?>
+
 
 </body>
 

@@ -24,11 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //var_dump(password_verify($pw, $row["password"]));
         if ($pw == $row["password"]) {
             echo "password ok";
+            $_SESSION["isLogged"] = true;
             header("Location: ./add_dog.php");
             die();
         } else {
             echo "password non valida";
             header("Location: ./index.php");
+            die();
         };
     };
 }
