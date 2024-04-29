@@ -9,9 +9,9 @@ var_dump($result);
 //$dog = $result->fetch_assoc();
 //var_dump(mysqli_fetch_assoc($result));
 
-while ($row = mysqli_fetch_assoc($result)) {
+/* while ($row = mysqli_fetch_assoc($result)) {
     var_dump($row);
-};
+}; */
 
 ?>
 
@@ -26,8 +26,10 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 <body>
 
-    <div class="while-loop">
-
+    <div>
+        <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+            <div><?php echo $row["name"]; ?></div>
+        <?php endwhile; ?>
     </div>
 
 </body>
