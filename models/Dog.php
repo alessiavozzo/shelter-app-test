@@ -27,4 +27,11 @@ class Dog
         $result = mysqli_query($this->connection, $query);
         return $result;
     }
+
+    public function deleteDogFromDatabase()
+    {
+        $query = "DELETE FROM `dogs` WHERE `name` = $this->dog_name";
+        $result = mysqli_query($this->connection, $query);
+        return $result;
+    }
 }

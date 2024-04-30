@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($pw == $row["password"]) {
                 echo "password ok";
                 $_SESSION["isLogged"] = true;
+                $_SESSION["name"] = $row["name"];
                 header("Location: ./index.php");
                 die();
             } else {
