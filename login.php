@@ -8,29 +8,37 @@ require __DIR__ . "/connection.php";
 //var_dump($_POST["password"]);
 //var_dump($_SERVER["REQUEST_METHOD"] == "POST");
 
+//controllo se è stato inviato il modulo
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
-    $pw = $_POST["password"];
+    //controllo se i campi email e password non sono vuoti
+    if (!empty($_POST["email"]) && !empty($_POST["password"])) {
+        //assegno a variabili
+        $email = $_POST["email"];
+        $pw = $_POST["password"];
 
-    $query = "SELECT * FROM `employees` WHERE `email` = '$email'";
-    $result = mysqli_query($connection, $query);
-    //var_dump($result);
-    $row = mysqli_fetch_assoc($result);
-    //var_dump($row);
+        //faccio una richiesta al database: seleziona tutti i risultati in employees dove l'email è uguale all'email inviata con la richiesta post
+        $query = "SELECT * FROM `employees` WHERE `email` = '$email'";
+        $result = mysqli_query($connection, $query);
+        //var_dump($result);
+        //recupero la riga del risultato come array associativo
+        $row = mysqli_fetch_assoc($result);
+        //var_dump($row);
 
-    if ($result) {
-        //var_dump($row["password"]);
-        //var_dump($pw);
-        //var_dump(password_verify($pw, $row["password"]));
-        if ($pw == $row["password"]) {
-            echo "password ok";
-            $_SESSION["isLogged"] = true;
-            header("Location: ./add_dog.php");
-            die();
-        } else {
-            echo "password non valida";
-            header("Location: ./index.php");
-            die();
+        if ($result) {
+            //var_dump($row["password"]);
+            //var_dump($pw);
+            //var_dump(password_verify($pw, $row["password"]));
+            //se la password che ho inviato col form è uguale a quella del risultato recuperato, registro che l'impiegato è loggato (isLogged) nella session e vado sulla pagina di aggiunta cani, altrimenti torno alla homepage
+            if ($pw == $row["password"]) {
+                echo "password ok";
+                $_SESSION["isLogged"] = true;
+                header("Location: ./add_dog.php");
+                die();
+            } else {
+                echo "password non valida";
+                header("Location: ./index.php");
+                die();
+            };
         };
-    };
+    }
 }

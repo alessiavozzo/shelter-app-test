@@ -32,12 +32,24 @@ $result = mysqli_query($connection, $query);
 
 <body>
 
+    <a href="registration.php" target="_blank">Registrati</a>
+
     <div>
         <?php while ($row = mysqli_fetch_assoc($result)) : ?>
             <div><?php echo $row["name"]; ?></div>
         <?php endwhile; ?>
     </div>
 
+    <div>per users</div>
+    <?php if ($showForm) : ?>
+        <form action="login_page.php" method="post">
+            <input type="email" name="user_email">
+            <input type="password" name="user_password">
+            <button type="submit">Login</button>
+        </form>
+    <?php endif; ?>
+
+    <div>per employees</div>
     <?php if ($showForm) : ?>
         <form action="login.php" method="post">
             <input type="email" name="email">
