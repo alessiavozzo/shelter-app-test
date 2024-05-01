@@ -4,7 +4,7 @@ console.log(dogs_ids);
 let cards = document.querySelectorAll(".card");
 console.log(cards);
 
-let buttons = document.querySelectorAll(".adopt");
+let buttons = document.querySelectorAll(".delete");
 console.log(buttons);
 
 for (let i = 0; i < buttons.length; i++) {
