@@ -1,5 +1,3 @@
-
-
 let dogs_ids = document.querySelectorAll(".dog_id");
 console.log(dogs_ids);
 

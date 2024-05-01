@@ -2,6 +2,8 @@
 require __DIR__ . "/connection.php";
 require __DIR__ . "./models/Dog.php";
 
+//in js, al click, parte una funzione che fa una axios post request che invia l'oggetto dogData a delete_dog.php come se fossero dati di un form. delete_dog.php gestisce la richiesta, memorizza il dato con chiave id dentro una variabile. Devo chiamare un metodo statico della classe Dog che mi permette di eliminare il cane selezionato
+
 if (!empty($_POST)) {
     //echo $_POST["id"];
     $dog_id = $_POST["id"];
