@@ -17,20 +17,12 @@ for (let i = 0; i < buttons.length; i++) {
         //console.log("indice", i);
         //console.log("bottone", button.id);
         const dog_id = button.id;
-        /* const form = new FormData();
-        form.append('id', 'dog_id');
-        axios.post('./delete_dog.php', form, { headers: { "Content-type": "multipart/form-data" } })
-            .then(function (response) {
-                console.log(response);
-            });
-        axios
-            .post("./delete_dog.php", { id: dog_id }, { headers: { "Content-type": "application/json" } })
+        const dogData = { id: dog_id }
+        axios.
+            post("./delete_dog.php", dogData, { headers: { "Content-Type": "multipart/form-data" } })
             .then(response => {
                 console.log(response);
-                console.log(response.data);
+                window.location.reload();
             })
-            .catch(error => {
-                console.log(error);
-            }) */
     })
 }

@@ -28,10 +28,10 @@ class Dog
         return $result;
     }
 
-    public function deleteDogFromDatabase()
+    public static function deleteDogFromDatabase($id, $connection)
     {
-        $query = "DELETE FROM `dogs` WHERE `name` = $this->dog_name";
-        $result = mysqli_query($this->connection, $query);
+        $query = "DELETE FROM `dogs` WHERE `id` = $id";
+        $result = mysqli_query($connection, $query);
         return $result;
     }
 }
