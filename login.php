@@ -33,7 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "password ok";
                 $_SESSION["isLogged"] = true;
                 $_SESSION["name"] = $row["name"];
-                header("Location: ./add_dog.php");
+                $_SESSION["admin"] = true;
+                header("Location: ./index.php");
                 die();
             } else {
                 echo "password non valida";

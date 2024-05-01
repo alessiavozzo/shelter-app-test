@@ -24,6 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $result = mysqli_query($connection, $query);
             header("Location: ./index.php");
             die();
+        } else {
+            echo "errore";
         }
     }
 }
